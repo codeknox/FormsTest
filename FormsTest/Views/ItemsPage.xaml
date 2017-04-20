@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:animations="clr-namespace:FormsTest"
+    xmlns:triggers="clr-namespace:FormsTest"
+    x:Class="FormsTest.ItemsPage"
+    Title="{Binding Title}"
+    x:Name="BrowseItemsPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Text="Add"
+            Clicked="AddItem_Clicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <animations:StoryBoard
+                x:Key="MyRydesAnimation"
+                Target="{x:Reference ItemsListView}">
+                <animations:FadeToAnimation
+                    Opacity="1"
+                    Duration="1000" />
+            </animations:StoryBoard>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Triggers>
+        <EventTrigger
+            Event="Appearing">
+            <triggers:BeginAnimation
+                Animation="{StaticResource MyRydesAnimation}" />
+        </EventTrigger>
+    </ContentPage.Triggers>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView
+                x:Name="ItemsListView"
+                ItemsSource="{Binding Items, Mode=OneWay}"
+                VerticalOptions="FillAndExpand"
+                HasUnevenRows="true"
+                SeparatorVisibility="None"
+                RefreshCommand="{Binding LoadItemsCommand}"
+                IsPullToRefreshEnabled="true"
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                BackgroundColor="Silver"
+                ItemSelected="OnItemSelected"
+                Opacity="0">
+                <!--                CachingStrategy="RecycleElement"-->
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame
+                                Margin="10,10,10,0"
+                                CornerRadius="5"
+                                Padding="10"
+                                HasShadow="false"
+                                BackgroundColor="White">
+                                <StackLayout
+                                    Spacing="5"
+                                    Margin="0,0,0,15">
+                                    <Label
+                                        Text="{Binding Text}"
+                                        LineBreakMode="NoWrap"
+                                        FontSize="16" />
+                                    <!--                                        Style="{DynamicResource ListItemTextStylex}"-->
+                                    <Image
+                                        Source="{Binding ImageUrl}"
+                                        HorizontalOptions="Start" />
+                                    <Label
+                                        Text="{Binding Description}"
+                                        LineBreakMode="WordWrap"
+                                        FontSize="13" />
+                                    <!--                                        Style="{DynamicResource ListItemDetailTextStylex}"-->
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
