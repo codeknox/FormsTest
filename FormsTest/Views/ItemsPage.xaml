@@ -55,18 +55,30 @@
                                 HasShadow="false"
                                 BackgroundColor="White">
                                 <StackLayout
-                                    Spacing="5"
-                                    Margin="0,0,0,15">
-                                    <Label
-                                        Text="{Binding Text}"
-                                        LineBreakMode="NoWrap"
-                                        FontSize="16" />
-                                    <!--                                        Style="{DynamicResource ListItemTextStylex}"-->
+                                    Spacing="0"
+                                    Margin="3,3,3,15">
+                                    <StackLayout
+                                        Orientation="Horizontal"
+                                        HorizontalOptions="FillAndExpand">
+                                        <Label
+                                            Text="{Binding Text}"
+                                            HorizontalOptions="StartAndExpand"
+                                            LineBreakMode="TailTruncation"
+                                            FontSize="16" />
+                                        <Label
+                                            Text="{Binding TimeAgo}"
+                                            HorizontalOptions="End"
+                                            LineBreakMode="NoWrap"
+                                            FontSize="13" />
+                                        <!--                                        Style="{DynamicResource ListItemTextStylex}"-->
+                                    </StackLayout>
                                     <Image
                                         Source="{Binding ImageUrl}"
+                                        Margin="5"
                                         HorizontalOptions="Start" />
                                     <Label
                                         Text="{Binding Description}"
+                                        Margin="0,0,0,5"
                                         LineBreakMode="WordWrap"
                                         FontSize="13" />
                                     <!--                                        Style="{DynamicResource ListItemDetailTextStylex}"-->

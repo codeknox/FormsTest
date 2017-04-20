@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using FormsTest.Views;
 using Xamarin.Forms;
 
 namespace FormsTest
@@ -14,6 +14,11 @@ namespace FormsTest
             InitializeComponent();
 
             BindingContext = this.viewModel = viewModel;
+        }
+
+        async void OnTapGestureRecognizerTappedAsync(object sender, EventArgs args)
+        {
+            await Navigation.PushModalAsync(new ShowImage(new ShowImageViewModel(viewModel.Item)));
         }
     }
 }

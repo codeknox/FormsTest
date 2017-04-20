@@ -49,6 +49,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Animations\ScaleToAnimation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Animations\TranslateAnimation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Animations\EasingHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\StringHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\PinchPanImage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ShowImage.xaml.cs">
+      <DependentUpon>ShowImage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml" />
@@ -57,6 +62,9 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\LoginPage.xaml" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\NewItemPage.xaml" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\ShowImage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Animations\" />

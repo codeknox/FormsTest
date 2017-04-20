@@ -1,5 +1,5 @@
 ﻿using System;
-
+using FormsTest.Helpers;
 using Newtonsoft.Json;
 
 namespace FormsTest
@@ -34,6 +34,19 @@ namespace FormsTest
         {
             get { return imageurl; }
             set { SetProperty(ref imageurl, value); }
+        }
+
+        DateTime postTime;
+        public DateTime PostTime
+        {
+            get { return postTime; }
+            set { SetProperty(ref postTime, value); }
+        }
+
+        [JsonIgnore]
+        public string TimeAgo
+        {
+            get { return PostTime.TimeAgo(); }
         }
     }
 }

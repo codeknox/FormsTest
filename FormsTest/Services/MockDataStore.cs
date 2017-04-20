@@ -19,16 +19,20 @@ namespace FormsTest
             {
                 var desc = DateTime.Now.AddMinutes(i).ToString("F");
                 string url = null;
+                var title = "item";
                 if (rnd.Next(20) < 10)
                 {
                     for (int d = 0; d <= rnd.Next(9); d++)
+                    {
+                        title += " item";
                         desc = $"{desc} with {DateTime.Now.AddMinutes(i).ToString("F")}";
+                    }
                 }
                 if (rnd.Next(10) < 6)
                 {
                     url = $"http://unsplash.it/200/300/?image={i}";
                 }
-                _items.Add(new Item { Id = Guid.NewGuid().ToString(), Text = $"item {i}", Description = desc, ImageUrl = url });
+                _items.Add(new Item { Id = Guid.NewGuid().ToString(), Text = $"{title} {i}", Description = desc, ImageUrl = url, PostTime = DateTime.Now - TimeSpan.FromMinutes(rnd.Next(100000)) });
             }
             //{
             //    new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is a nice description"},
