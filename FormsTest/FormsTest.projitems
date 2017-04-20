@@ -54,6 +54,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\ShowImage.xaml.cs">
       <DependentUpon>ShowImage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\ExtensionMethods.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml" />

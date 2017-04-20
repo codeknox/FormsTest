@@ -43,8 +43,8 @@
                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                 BackgroundColor="Silver"
                 ItemSelected="OnItemSelected"
+                CachingStrategy="RecycleElement"
                 Opacity="0">
-                <!--                CachingStrategy="RecycleElement"-->
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

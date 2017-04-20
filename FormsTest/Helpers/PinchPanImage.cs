@@ -135,8 +135,8 @@ namespace FormsTest.Helpers
                 double targetY = _lastTransY - (originY * this.Height) * (_currentScale - _startPinchScale);
 
                 // Apply translation based on the change in origin.
-                //this.TranslationX = targetX.Clamp(-this.Width * (_currentScale - 1), 0);
-                //this.TranslationY = targetY.Clamp(-this.Height * (_currentScale - 1), 0);
+                this.TranslationX = targetX.Clamp(-this.Width * (_currentScale - 1), 0);
+                this.TranslationY = targetY.Clamp(-this.Height * (_currentScale - 1), 0);
 
                 // Apply scale factor.
                 this.Scale = _currentScale;
